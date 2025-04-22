@@ -4,6 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="/env.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        document.title = window.APP_CONFIG.PAGE_TITLE || "Vite App";
+
+        const metaOgTitle = document.querySelector('meta[property="og:title"]');
+        if (metaOgTitle) {
+          metaOgTitle.setAttribute(
+            "content",
+            window.APP_CONFIG.PAGE_TITLE || "Vite App"
+          );
+        }
+
+        const metaDescription = document.querySelector(
+          'meta[name="description"]'
+        );
+        if (metaDescription) {
+          metaDescription.setAttribute(
+            "content",
+            window.APP_CONFIG.PAGE_DESCRIPTION || "Vite App"
+          );
+        }
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
